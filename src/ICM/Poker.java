@@ -35,7 +35,6 @@ public class Poker {
 			tempCount.put(hand.charAt(k), 0);
 		}
 		
-		//System.out.println("I am just after the tempcount is created: "+tempCount);
 		for(int i=0; i<hand.length(); i=i+3){
 			for(int j=i+3; j<hand.length(); j=j+3){
 				if(hand.charAt(i) == hand.charAt(j)){
@@ -53,44 +52,41 @@ public class Poker {
 		straight = checkStraight(tempSet);
 		
 		if(flush && straight && tempSet.containsAll(RoyalFlush)){
-			System.out.println("Royal Flush");
+			//System.out.println("Royal Flush");
 			result =  10;
 		}
 		else if(flush && straight){
-			System.out.println("Staright Flush");
+			//System.out.println("Staright Flush");
 			result = 9;
 			return tempCount;
 		}
 		else if(fourofAKind(count)){
-			System.out.println("Four of a kind");
+			//System.out.println("Four of a kind");
 			result = 8;
 			return tempCount;
 		}
 		else if(threeofAKind(count) && (numberOfPair(count) == 1)){
-			System.out.println("Full House");
+			//System.out.println("Full House");
 			result = 7;
-			System.out.println(tempCount);
-			System.out.println("No. of Pairs: "+numberOfPair(count));
 			return tempCount;
 		}
 		else if(flush){
-			System.out.println("Flush");
+			//System.out.println("Flush");
 			result = 6;
 			return tempCount;
 		}
 		else if(straight){
-			System.out.println("Straight");
+			//System.out.println("Straight");
 			result = 5;
 			return tempCount;
 		}
 		else if(threeofAKind(count)){
-			System.out.println("Three of a kind");
-			//System.out.println("In three of a Kind: "+tempCount);
+			//System.out.println("Three of a kind");
 			result = 4;
 			return tempCount;
 		}
 		else if(numberOfPair(count) == 2){
-			System.out.println("Two different pairs");
+			//System.out.println("Two different pairs");
 			//highCard = getRank(count);
 			//tempCount.clear();
 			for(int i=0; i<hand.length(); i=i+3){
@@ -101,7 +97,7 @@ public class Poker {
 			return count;
 		}
 		else if(numberOfPair(count) == 1){
-			System.out.println("One Pair");
+			//System.out.println("One Pair");
 			//highCard = getRank(count);
 			//tempCount.clear();
 			for(int i=0; i<hand.length(); i=i+3){
@@ -115,7 +111,6 @@ public class Poker {
 			//highCard = getRank(tempCount);
 			//System.out.println("High Card: "+highCard);
 			result = 1;
-			//System.out.println("I am in Poker: "+ tempCount);
 			return tempCount;
 		}
 		return count;
@@ -176,9 +171,6 @@ public class Poker {
 		}
 		
 		Arrays.sort(ranks);
-		//for(int n=0; n<ranks.length; n++)
-		//System.out.println("Test Array: "+ranks[n]);
-		
 		if(ranks[4] == ranks[0]+4)
 			return true;
 		else
@@ -187,7 +179,6 @@ public class Poker {
 	
 	
 	public int getRank(HashMap <Character,Integer> count1){
-		//System.out.println("Count 1 Size: "+ count1.size());
 		int  [] tempArr = new int[count1.size()];
 		int i= 0;
 		int temp = 0;
